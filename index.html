@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#fbf8f1" />
+  <link rel="icon" type="image/png" href="panela-amarela-icon.png" />
+  <title>Panela Amarela — cozinha no seu ritmo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="Panela Amarela, início"><img class="brand-mark" src="panela-amarela-icon.png" alt="" /><span>panela <span class="brand-yellow">amarela</span><span class="brand-dot">.</span></span></a>
+    <nav aria-label="Navegação principal"><a class="nav-active" href="#inicio">Receitas</a><a href="#receitas">Escolha seu prato</a></nav>
+    <label class="search-box"><span aria-hidden="true">⌕</span><input id="recipeSearch" type="search" placeholder="Buscar prato..." aria-label="Buscar receita pelo nome" autocomplete="off"></label>
+    <div class="streak" title="Sua lista de receitas"><span>✦</span> <b id="savedCount">45</b> <small>pratos</small></div>
+  </header>
+
+  <main id="inicio">
+    <section class="welcome">
+      <div><p class="eyebrow">SUA COZINHA, SEU RITMO</p><h1>O que vai sair<br>da <em>panela</em> hoje?</h1><p class="intro">Escolha um prato e cozinhe com um passo a passo simples.</p></div>
+      <div class="welcome-art" aria-hidden="true"><div class="sun"></div><span class="art-leaf leaf-one">✳</span><span class="art-leaf leaf-two">✳</span><div class="pot"><div class="pot-lid"></div><div class="pot-body"><span>〰</span></div><div class="pot-handle left"></div><div class="pot-handle right"></div></div><div class="art-ground"></div></div>
+    </section>
+
+    <section class="daily" aria-label="Dica para cozinhar"><div class="daily-copy"><span class="daily-icon">✦</span><div><strong>Um prato por vez</strong><p>Ingredientes, preparo e dicas reunidos num só lugar.</p></div></div><span class="daily-note">DO BÁSICO AO CASEIRO</span></section>
+
+    <section class="learning" id="receitas">
+      <div class="section-heading"><div><p class="eyebrow">RECEITAS PARA COMEÇAR</p><h2>Escolha o que quer fazer</h2></div><span class="level-pill"><span id="recipeCount">45 PRATOS</span> · PASSO A PASSO</span></div>
+      <div class="recipe-grid" id="recipeGrid" aria-live="polite"></div>
+    </section>
+    <footer><img class="brand-mark small" src="panela-amarela-icon.png" alt="" /><span>Feito com carinho e uma pitada de prática.</span><span class="footer-right">Bora cozinhar? <b>♥</b></span></footer>
+  </main>
+
+  <div class="modal-backdrop" id="recipeModal" hidden>
+    <section class="lesson-modal" role="dialog" aria-modal="true" aria-labelledby="recipeTitle">
+      <button class="close-modal" id="closeRecipe" aria-label="Fechar receita">×</button>
+      <div class="modal-progress"><span id="stepLabel">ANTES DE COMEÇAR</span><div class="progress-track"><i id="recipeProgress"></i></div></div>
+      <div id="recipeContent"></div>
+      <div class="modal-footer"><button class="text-button" id="backStep" hidden>← Voltar</button><button class="primary-button" id="nextStep">Começar receita <span>→</span></button></div>
+    </section>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
